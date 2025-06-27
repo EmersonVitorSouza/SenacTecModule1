@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- Declara que este é um documento HTML5 -->
+<html lang="pt-BR">
+<!-- Início do documento HTML, idioma definido como português do Brasil -->
+
+<head>
+    <!-- Cabeçalho do documento, onde ficam informações sobre o site -->
+
+    <meta charset="UTF-8" />
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar caracteres especiais -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Faz o site ser responsivo, ajustando a largura da página à largura da tela -->
+
+    <title>TechVision - Portal Digital</title>
+    <!-- Título que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link para o arquivo externo de estilos CSS -->
+</head>
+
+<body>
+    <!-- Corpo do documento, onde fica todo o conteúdo visível da página -->
+
+    <div class="grid-bg"></div>
+    <!-- Div usada para o fundo quadriculado (efeito visual) -->
+
+    <div class="particles" id="particles"></div>
+    <!-- Div onde as partículas animadas serão criadas pelo JavaScript -->
+
+    <div class="container">
+        <!-- Container principal que centraliza o conteúdo e limita a largura -->
+
+        <header>
+            <!-- Cabeçalho do site -->
+
+            <h1 class="neon-text">TECH<span style="color: #00f0ff">VISION</span></h1>
+            <!-- Título principal com efeito neon. "TECH" e "VISION" com cor diferente -->
+
+            <p>Portal Digital Futurista</p>
+            <!-- Pequena descrição ou slogan do site -->
+
+            <div id="userGreeting" style="margin-top: 10px; display: none;">
+                <!-- Área que mostra a saudação ao usuário logado, inicialmente escondida -->
+
+                <span id="usernameDisplay" style="color: #00f0ff;"></span>
+                <!-- Aqui será exibido o nome do usuário após o login -->
+
+                <button id="logoutBtn" style="background: none; border: none; color: #ff5555; cursor: pointer; margin-left: 10px;">Sair</button>
+                <!-- Botão para o usuário sair da conta -->
+            </div>
+        </header>
+
+        <div class="tab-system">
+            <!-- Sistema de abas para trocar entre Criar Conta, Login e Galeria -->
+
+            <button class="tab-btn active" data-tab="register">Criar Conta</button>
+            <!-- Botão da aba 'Criar Conta', ativo inicialmente -->
+
+            <button class="tab-btn" data-tab="login">Login</button>
+            <!-- Botão da aba 'Login' -->
+
+            <button class="tab-btn" data-tab="gallery">Galeria</button>
+            <!-- Botão da aba 'Galeria' -->
+        </div>
+
+        <!-- Registro -->
+        <div class="tab-content active" id="register">
+            <!-- Conteúdo da aba 'Criar Conta', visível inicialmente -->
+
+            <div class="form-container neon-border">
+                <!-- Container do formulário com borda neon -->
+
+                <h2 class="neon-text" style="text-align: center; margin-bottom: 20px;">CRIAR NOVA CONTA</h2>
+                <!-- Título do formulário -->
+
+                <form id="registerForm">
+                    <!-- Formulário para registro de novo usuário -->
+
+                    <div class="form-group">
+                        <!-- Grupo do campo Nome de Usuário -->
+
+                        <label for="reg-username">Nome de Usuário</label>
+                        <!-- Rótulo do campo -->
+
+                        <input type="text" id="reg-username" class="form-control" required />
+                        <!-- Campo de texto para o nome de usuário, obrigatório -->
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Grupo do campo E-mail -->
+
+                        <label for="reg-email">E-mail</label>
+                        <!-- Rótulo do campo -->
+
+                        <input type="email" id="reg-email" class="form-control" required />
+                        <!-- Campo para o e-mail, obrigatório e com validação de formato -->
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Grupo do campo Senha -->
+
+                        <label for="reg-password">Senha</label>
+                        <!-- Rótulo do campo -->
+
+                        <input type="password" id="reg-password" class="form-control" required />
+                        <!-- Campo para senha, ocultando o texto, obrigatório -->
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Grupo do campo Confirmar Senha -->
+
+                        <label for="reg-confirm">Confirmar Senha</label>
+                        <!-- Rótulo do campo -->
+
+                        <input type="password" id="reg-confirm" class="form-control" required />
+                        <!-- Campo para repetir a senha e confirmar, obrigatório -->
+                    </div>
+
+                    <button type="submit" class="btn">Registrar</button>
+                    <!-- Botão para enviar o formulário de registro -->
+                </form>
+            </div>
+        </div>
+
+        <!-- Login -->
+        <div class="tab-content" id="login">
+            <!-- Conteúdo da aba 'Login', inicialmente escondida -->
+
+            <div class="form-container neon-border">
+                <!-- Container do formulário com borda neon -->
+
+                <h2 class="neon-text" style="text-align: center; margin-bottom: 20px;">ACESSAR CONTA</h2>
+                <!-- Título do formulário de login -->
+
+                <form id="loginForm">
+                    <!-- Formulário para login do usuário -->
+
+                    <div class="form-group">
+                        <!-- Grupo do campo Nome de Usuário -->
+
+                        <label for="login-username">Nome de Usuário</label>
+                        <!-- Rótulo do campo -->
+
+                        <input type="text" id="login-username" class="form-control" required />
+                        <!-- Campo para o nome de usuário, obrigatório -->
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Grupo do campo Senha -->
+
+                        <label for="login-password">Senha</label>
+                        <!-- Rótulo do campo -->
+
+                        <input type="password" id="login-password" class="form-control" required />
+                        <!-- Campo para senha, ocultando o texto, obrigatório -->
+                    </div>
+
+                    <button type="submit" class="btn">Entrar</button>
+                    <!-- Botão para enviar o formulário de login -->
+                </form>
+            </div>
+        </div>
+
+        <!-- Galeria -->
+        <div class="tab-content" id="gallery">
+            <!-- Conteúdo da aba 'Galeria', inicialmente escondida -->
+
+            <div class="form-container neon-border">
+                <!-- Container com borda neon para o upload de imagens -->
+
+                <h2 class="neon-text" style="text-align: center; margin-bottom: 20px;">UPLOAD DE IMAGENS</h2>
+                <!-- Título da seção de upload -->
+
+                <div class="upload-area" id="uploadArea">
+                    <!-- Área para clicar ou arrastar imagens para upload -->
+
+                    <div>
+                        <!-- Ícone SVG para simbolizar upload -->
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#00f0ff" viewBox="0 0 16 16">
+                            <!-- Caminhos que desenham o ícone do upload -->
+
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                        </svg>
+                    </div>
+
+                    <p>Arraste e solte sua imagem aqui ou clique para selecionar</p>
+                    <!-- Texto que orienta o usuário a interagir com a área de upload -->
+
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
+                    <!-- Campo invisível para selecionar arquivo de imagem -->
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo para a legenda da imagem -->
+
+                    <label for="imageCaption">Legenda da Imagem</label>
+                    <!-- Rótulo do campo -->
+
+                    <input type="text" id="imageCaption" class="form-control" placeholder="Digite uma legenda para sua imagem" />
+                    <!-- Campo para o usuário digitar a legenda da imagem -->
+                </div>
+
+                <button id="uploadBtn" class="btn">Enviar Imagem</button>
+                <!-- Botão para enviar a imagem para a galeria -->
+            </div>
+
+            <div id="galleryDisplay" class="gallery-container"></div>
+            <!-- Área onde as imagens enviadas serão exibidas -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Link para o arquivo externo de JavaScript -->
+</body>
+
+</html>

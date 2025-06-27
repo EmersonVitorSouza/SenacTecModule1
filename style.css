@@ -1,0 +1,375 @@
+/* Reset e Estilos Gerais */
+/* Aplica estilo para todos os elementos da página */
+* {
+    margin: 0; /* Remove as margens padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    box-sizing: border-box; /* Faz o tamanho incluir bordas e preenchimento */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte padrão */
+}
+
+/* Estilos para o corpo da página */
+body {
+    background-color: #0a0a1a; /* Cor de fundo escura */
+    color: #e0e0e0; /* Cor do texto clara */
+    min-height: 100vh; /* Altura mínima igual a altura da tela */
+    overflow-x: hidden; /* Impede rolagem horizontal */
+}
+
+/* Efeitos de Neon */
+/* Texto com efeito de brilho neon */
+.neon-text {
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff; /* Sombra azul brilhante */
+    color: #ffffff; /* Cor branca para o texto */
+}
+
+/* Borda com efeito de brilho neon */
+.neon-border {
+    box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff inset; /* Brilho interno e externo */
+    border: 1px solid #00f0ff; /* Borda azul */
+}
+
+/* Borda fina com brilho neon */
+.neon-border-thin {
+    box-shadow: 0 0 5px #00f0ff; /* Brilho suave */
+    border: 1px solid #00f0ff; /* Borda azul */
+}
+
+/* Classe para animação de brilho pulsante */
+.neon-glow {
+    animation: glow 2s ease-in-out infinite alternate; /* Animação que alterna brilho */
+}
+
+/* Definição da animação "glow" */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff inset; /* Brilho menor */
+    }
+    to {
+        box-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff inset; /* Brilho maior */
+    }
+}
+
+/* Layout Principal */
+/* Container principal que centraliza e limita a largura */
+.container {
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+}
+
+/* Estilo do cabeçalho */
+header {
+    text-align: center; /* Centraliza texto */
+    margin-bottom: 30px; /* Espaço abaixo do cabeçalho */
+    padding: 20px 0; /* Espaçamento acima e abaixo */
+    position: relative; /* Para posicionar elementos dentro dele */
+}
+
+/* Linha decorativa abaixo do cabeçalho */
+header::after {
+    content: ''; /* Elemento vazio */
+    position: absolute; /* Posiciona em relação ao header */
+    bottom: 0; /* Na parte inferior */
+    left: 25%; /* Começa a 25% da largura */
+    width: 50%; /* Tem 50% da largura total */
+    height: 2px; /* Altura da linha */
+    background: linear-gradient(90deg, transparent, #00f0ff, transparent); /* Gradiente azul no meio */
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.5rem; /* Tamanho da fonte */
+    margin-bottom: 10px; /* Espaço abaixo */
+    letter-spacing: 3px; /* Espaçamento entre letras */
+}
+
+/* Sistema de Abas */
+/* Container dos botões das abas */
+.tab-system {
+    display: flex; /* Usa flexbox para organizar os botões em linha */
+    justify-content: center; /* Centraliza os botões */
+    margin-bottom: 30px; /* Espaço abaixo dos botões */
+}
+
+/* Estilo dos botões das abas */
+.tab-btn {
+    background: rgba(0, 0, 0, 0.3); /* Fundo preto transparente */
+    color: #e0e0e0; /* Cor do texto clara */
+    border: none; /* Sem borda padrão */
+    outline: none; /* Remove contorno ao focar */
+    cursor: pointer; /* Cursor de mãozinha ao passar */
+    padding: 12px 25px; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    margin: 0 5px; /* Espaço lateral entre botões */
+    transition: all 0.3s ease; /* Transição suave para mudanças */
+    position: relative; /* Para posicionar elementos internos */
+    overflow: hidden; /* Esconde o que ultrapassa o botão */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+}
+
+/* Linha azul que aparece embaixo do botão ao passar o mouse */
+.tab-btn::before {
+    content: ''; /* Elemento vazio */
+    position: absolute; /* Posiciona em relação ao botão */
+    bottom: 0; /* Na base do botão */
+    left: 0; /* Começa do lado esquerdo */
+    width: 100%; /* Largura total do botão */
+    height: 2px; /* Altura da linha */
+    background: #00f0ff; /* Cor azul */
+    transform: scaleX(0); /* Inicialmente escondida (escala 0 no eixo X) */
+    transition: transform 0.3s ease; /* Transição para animação suave */
+}
+
+/* Cor do texto ao passar o mouse */
+.tab-btn:hover {
+    color: #00f0ff; /* Azul */
+}
+
+/* Cor do texto do botão ativo */
+.tab-btn.active {
+    color: #00f0ff; /* Azul */
+}
+
+/* Exibe a linha azul do botão ativo */
+.tab-btn.active::before {
+    transform: scaleX(1); /* Escala total para mostrar a linha */
+}
+
+/* Conteúdo das Abas */
+/* Esconde os conteúdos por padrão */
+.tab-content {
+    display: none; /* Não aparece */
+    animation: fadeIn 0.5s ease; /* Animação para aparecer suavemente */
+}
+
+/* Animação de fade para aparecer */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); } /* Começa invisível e abaixo */
+    to { opacity: 1; transform: translateY(0); } /* Termina visível e na posição normal */
+}
+
+/* Exibe o conteúdo da aba ativa */
+.tab-content.active {
+    display: block; /* Aparece na tela */
+}
+
+/* Formulários */
+/* Container dos formulários */
+.form-container {
+    max-width: 500px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza */
+    padding: 30px; /* Espaçamento interno */
+    background: rgba(10, 20, 30, 0.7); /* Fundo escuro semi-transparente */
+    position: relative; /* Para efeitos visuais */
+}
+
+/* Borda brilhante atrás do formulário */
+.form-container::before {
+    content: ''; /* Elemento vazio */
+    position: absolute; /* Posiciona atrás do conteúdo */
+    top: -2px; /* Um pouco para cima */
+    left: -2px; /* Um pouco para a esquerda */
+    right: -2px; /* Um pouco para a direita */
+    bottom: -2px; /* Um pouco para baixo */
+    background: linear-gradient(45deg, #00f0ff, #0066ff, #00f0ff); /* Gradiente azul */
+    z-index: -1; /* Fica atrás do conteúdo */
+    filter: blur(5px); /* Desfoca para dar brilho */
+}
+
+/* Espaçamento entre os grupos do formulário */
+.form-group {
+    margin-bottom: 20px; /* Espaço embaixo de cada grupo */
+    position: relative; /* Para posicionar elementos filhos se precisar */
+}
+
+/* Estilo dos labels dos campos */
+.form-group label {
+    display: block; /* Faz o label ocupar linha inteira */
+    margin-bottom: 8px; /* Espaço abaixo do texto */
+    color: #00f0ff; /* Cor azul */
+    font-size: 0.9rem; /* Tamanho da fonte */
+    letter-spacing: 1px; /* Espaço entre letras */
+}
+
+/* Estilo dos inputs do formulário */
+.form-control {
+    width: 100%; /* Ocupa toda largura do container */
+    padding: 12px 15px; /* Espaçamento interno */
+    background: rgba(0, 0, 0, 0.3); /* Fundo preto transparente */
+    border: 1px solid #00f0ff; /* Borda azul */
+    color: #ffffff; /* Cor do texto branca */
+    font-size: 1rem; /* Tamanho da fonte */
+    transition: all 0.3s ease; /* Transição suave para foco */
+}
+
+/* Estilo quando o campo está focado (clicado para digitar) */
+.form-control:focus {
+    outline: none; /* Remove a borda padrão */
+    box-shadow: 0 0 10px #00f0ff; /* Brilho azul ao redor */
+}
+
+/* Botões */
+.btn {
+    background: linear-gradient(90deg, #0066ff, #00f0ff); /* Fundo degradê azul */
+    color: #ffffff; /* Texto branco */
+    border: none; /* Sem borda */
+    padding: 12px 30px; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de mãozinha */
+    transition: all 0.3s ease; /* Transição suave */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    letter-spacing: 1px; /* Espaço entre letras */
+    font-weight: bold; /* Texto em negrito */
+    margin-top: 10px; /* Espaço acima do botão */
+}
+
+/* Efeito ao passar o mouse no botão */
+.btn:hover {
+    background: linear-gradient(90deg, #00f0ff, #0066ff); /* Inverte o degradê */
+    transform: translateY(-2px); /* Levanta o botão */
+    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3); /* Sombra azul suave */
+}
+
+/* Galeria de Imagens */
+/* Container da galeria usando grid para organizar imagens */
+.gallery-container {
+    display: grid; /* Usa grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Colunas que se adaptam */
+    gap: 25px; /* Espaçamento entre imagens */
+    margin-top: 30px; /* Espaço acima da galeria */
+}
+
+/* Cartões das imagens */
+.image-card {
+    position: relative; /* Para posicionar elementos internos */
+    overflow: hidden; /* Esconde conteúdo que ultrapassa */
+    transition: all 0.3s ease; /* Transição suave para hover */
+}
+
+/* Efeito ao passar o mouse no cartão da imagem */
+.image-card:hover {
+    transform: translateY(-5px); /* Levanta o cartão um pouco */
+}
+
+/* Estilo da imagem dentro do cartão */
+.image-card img {
+    width: 100%; /* Largura total do cartão */
+    height: 250px; /* Altura fixa */
+    object-fit: cover; /* Corta a imagem para preencher sem distorcer */
+    display: block; /* Remove espaço abaixo da imagem */
+}
+
+/* Legenda da imagem */
+.image-caption {
+    padding: 15px; /* Espaçamento interno */
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    color: #ffffff; /* Texto branco */
+    font-size: 0.9rem; /* Tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Área para upload de imagens */
+.upload-area {
+    border: 2px dashed #00f0ff; /* Borda pontilhada azul */
+    padding: 30px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 20px; /* Espaço abaixo */
+    cursor: pointer; /* Cursor de mãozinha */
+    transition: all 0.3s ease; /* Transição suave */
+}
+
+/* Efeito ao passar o mouse na área de upload */
+.upload-area:hover {
+    background: rgba(0, 240, 255, 0.1); /* Fundo azul bem claro */
+}
+
+/* Ícone dentro da área de upload */
+.upload-area i {
+    font-size: 3rem; /* Tamanho grande */
+    color: #00f0ff; /* Azul */
+    margin-bottom: 15px; /* Espaço abaixo */
+}
+
+/* Texto dentro da área de upload */
+.upload-area p {
+    color: #00f0ff; /* Azul */
+    margin-bottom: 10px; /* Espaço abaixo */
+}
+
+/* Responsividade para telas menores que 768px */
+@media (max-width: 768px) {
+    /* Faz os botões das abas ficarem em coluna */
+    .tab-system {
+        flex-direction: column;
+    }
+
+    /* Ajusta o espaçamento dos botões */
+    .tab-btn {
+        margin: 5px 0;
+    }
+
+    /* Reduz o padding dos formulários */
+    .form-container {
+        padding: 20px;
+    }
+
+    /* Galeria fica em uma coluna só */
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Efeitos Especiais */
+/* Fundo quadriculado com linhas muito claras */
+.grid-bg {
+    position: fixed; /* Fixa na tela */
+    top: 0; /* No topo */
+    left: 0; /* No canto esquerdo */
+    width: 100%; /* Ocupa toda largura */
+    height: 100%; /* Ocupa toda altura */
+    background: 
+        linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px); /* Linhas horizontais e verticais */
+    background-size: 30px 30px; /* Espaçamento das linhas */
+    z-index: -1; /* Fica atrás de tudo */
+}
+
+/* Container das partículas animadas */
+.particles {
+    position: fixed; /* Fixo na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Atrás do conteúdo */
+    pointer-events: none; /* Permite clicar nos elementos abaixo */
+}
+
+/* Estilo das partículas */
+.particle {
+    position: absolute; /* Posicionamento absoluto */
+    width: 2px; /* Largura pequena */
+    height: 2px; /* Altura pequena */
+    background: #00f0ff; /* Cor azul */
+    border-radius: 50%; /* Deixa redondinha */
+    opacity: 0.5; /* Transparência */
+    animation: float 15s infinite linear; /* Animação de flutuar */
+}
+
+/* Animação das partículas flutuando para cima e sumindo */
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0); /* Posição inicial */
+        opacity: 0; /* Começa invisível */
+    }
+    10% {
+        opacity: 0.5; /* Fica visível */
+    }
+    90% {
+        opacity: 0.5; /* Continua visível */
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px); /* Sobe até sumir para cima e um pouco para direita */
+        opacity: 0; /* Fica invisível */
+    }
+}
